@@ -1,0 +1,7 @@
+@namespace("com.user")
+protocol UserManagement {
+    record User {
+        string name;
+        int age;
+    }
+}
