@@ -14,7 +14,7 @@
         <kotlin.version>1.9.10</kotlin.version>
         <kafka.version>3.5.1</kafka.version>
         <avro.version>1.11.3</avro.version>
-        <confluent.version>7.4.0</confluent.version>
+        <confluent.version>7.5.0</confluent.version>
         <log4j-slf4j2-impl.version>2.20.0</log4j-slf4j2-impl.version>
         <slf4j-api.version>2.0.9</slf4j-api.version>
         <kotest.version>5.6.2</kotest.version>
