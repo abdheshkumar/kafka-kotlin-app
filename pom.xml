@@ -17,7 +17,7 @@
         <confluent.version>7.5.0</confluent.version>
         <log4j-slf4j2-impl.version>2.20.0</log4j-slf4j2-impl.version>
         <slf4j-api.version>2.0.9</slf4j-api.version>
-        <kotest.version>5.6.2</kotest.version>
+        <kotest.version>5.7.2</kotest.version>
         <kotest-extensions-testcontainers.version>2.0.2</kotest-extensions-testcontainers.version>
         <testcontainers.version>1.19.0</testcontainers.version>
         <jupiter.version>5.10.0</jupiter.version>
