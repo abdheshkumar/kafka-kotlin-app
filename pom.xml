@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <kotlin.version>1.9.10</kotlin.version>
         <kotlinx.version>1.7.3</kotlinx.version>
-        <kafka.version>3.5.1</kafka.version>
+        <kafka.version>3.6.0</kafka.version>
         <avro.version>1.11.3</avro.version>
         <confluent.version>7.5.0</confluent.version>
         <log4j-slf4j2-impl.version>2.20.0</log4j-slf4j2-impl.version>
