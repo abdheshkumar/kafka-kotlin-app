@@ -14,7 +14,7 @@ object AvroKafkaProducer {
 
     private val log: Logger = LoggerFactory.getLogger(AvroKafkaProducer::class.java)
 
-    private fun kafkaProperties(): Properties {
+    fun kafkaProperties(): Properties {
         val props = Properties()
         props[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = "localhost:29092"
         props[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
@@ -24,9 +24,9 @@ object AvroKafkaProducer {
         return props
     }
 
-    private fun createProducer(props: Properties): KafkaProducer<String, User> = KafkaProducer(props)
+    fun createProducer(props: Properties): KafkaProducer<String, User> = KafkaProducer(props)
 
-    private fun produceMessages(producer: KafkaProducer<String, User>) {
+    fun produceMessages(producer: KafkaProducer<String, User>) {
         for (i in 0..99) {
             val user = User.newBuilder().setAge(i).setName("Message-$i").build()
             val record = ProducerRecord("my-topic-avro", i.toString(), user)
@@ -41,13 +41,12 @@ object AvroKafkaProducer {
 
         producer.close()
     }
+}
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        produceMessages(
-            createProducer(
-                kafkaProperties(),
-            ),
-        )
-    }
+fun main() {
+    AvroKafkaProducer.produceMessages(
+        AvroKafkaProducer.createProducer(
+            AvroKafkaProducer.kafkaProperties(),
+        ),
+    )
 }

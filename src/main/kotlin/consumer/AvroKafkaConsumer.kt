@@ -14,7 +14,7 @@ import java.util.*
 object AvroKafkaConsumer {
     private val log: Logger = LoggerFactory.getLogger(AvroKafkaConsumer::class.java)
 
-    private fun kafkaProperties(): Properties {
+    fun kafkaProperties(): Properties {
         val props = Properties()
         props[ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG] = "localhost:29092"
         props[ConsumerConfig.GROUP_ID_CONFIG] = "test"
@@ -27,20 +27,19 @@ object AvroKafkaConsumer {
         return props
     }
 
-    private fun createConsumer(props: Properties): KafkaConsumer<String, User> = KafkaConsumer(props)
+    fun createConsumer(props: Properties): KafkaConsumer<String, User> = KafkaConsumer(props)
 
-    private fun readMessages(consumer: KafkaConsumer<String, User>) {
+    fun readMessages(consumer: KafkaConsumer<String, User>) {
         while (true) {
             val records: ConsumerRecords<String, User> = consumer.poll(Duration.ofMillis(100))
             for (record in records)
                 log.info("offset = ${record.offset()}, key = ${record.key()}, value = ${record.value()}")
         }
     }
+}
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val consumer = createConsumer(kafkaProperties())
-        consumer.subscribe(listOf("my-topic-avro"))
-        readMessages(consumer)
-    }
+fun main() {
+    val consumer = AvroKafkaConsumer.createConsumer(AvroKafkaConsumer.kafkaProperties())
+    consumer.subscribe(listOf("my-topic-avro"))
+    AvroKafkaConsumer.readMessages(consumer)
 }

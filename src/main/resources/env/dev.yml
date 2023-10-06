@@ -1,0 +1,2 @@
+bootstrapServers: localhost:29092
+schemaRegistryUrl: http://localhost:8081

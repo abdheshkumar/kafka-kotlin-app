@@ -25,3 +25,6 @@ curl --silent http://localhost:8081/subjects/
 curl --silent http://localhost:8081/subjects/my-topic-avro-value/versions/1/schema
 {"type":"record","name":"User","namespace":"com.user","fields":[{"name":"name","type":"string"},{"name":"age","type":"int"}]}
 ```
+
+FOR RESOURCE SAFETY: https://arrow-kt.io/learn/quickstart/
+FOR CONFIG: https://github.com/sksamuel/hoplite
