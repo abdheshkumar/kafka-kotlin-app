@@ -2,6 +2,7 @@ package producer
 
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
+import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.ProducerRecord
@@ -18,8 +19,7 @@ object AvroKafkaProducer {
         val props = Properties()
         props[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = "localhost:29092"
         props[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
-        props[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] =
-            io.confluent.kafka.serializers.KafkaAvroSerializer::class.java
+        props[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = KafkaAvroSerializer::class.java
         props[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = "http://localhost:8081"
         return props
     }

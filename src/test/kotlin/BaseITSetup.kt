@@ -14,15 +14,19 @@ abstract class BaseITSetup : StringSpec() {
 
     private val kafkaContainerResource: Resource<KafkaContainer> =
         resource({
-            KafkaContainer(DockerImageName.parse(confluentPlatformKafkaImage))
+            val container = KafkaContainer(DockerImageName.parse(confluentPlatformKafkaImage))
                 .withNetwork(Network.SHARED)
                 .waitingFor(HostPortWaitStrategy())
+            container.start()
+            container
         }) { container, _ ->
             container.close()
         }
 
     private fun schemaRegistryContainerResource(kafkaContainer: KafkaContainer) = resource({
-        createSchemaRegistryContainer(kafkaContainer)
+        val container = createSchemaRegistryContainer(kafkaContainer)
+        container.start()
+        container
     }) { container, _ -> container.close() }
 
     private fun createSchemaRegistryContainer(
