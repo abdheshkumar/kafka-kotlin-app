@@ -25,7 +25,7 @@
         <testcontainers.version>1.19.1</testcontainers.version>
         <jupiter.version>5.10.0</jupiter.version>
         <hoplite.version>2.7.5</hoplite.version>
-        <arrow.version>1.2.0</arrow.version>
+        <arrow.version>1.2.1</arrow.version>
     </properties>
     <repositories>
         <repository>
