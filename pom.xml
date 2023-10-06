@@ -14,18 +14,18 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <kotlin.version>1.9.10</kotlin.version>
         <kotlinx.version>1.7.3</kotlinx.version>
-        <kafka.version>3.5.1</kafka.version>
+        <kafka.version>3.6.0</kafka.version>
         <avro.version>1.11.3</avro.version>
-        <confluent.version>7.5.0</confluent.version>
+        <confluent.version>7.5.1</confluent.version>
         <log4j-slf4j2-impl.version>2.20.0</log4j-slf4j2-impl.version>
         <slf4j-api.version>2.0.9</slf4j-api.version>
         <kotest.version>5.7.2</kotest.version>
         <kotest-extensions-testcontainers.version>2.0.2</kotest-extensions-testcontainers.version>
         <kotest-assertions-arrow-fx-coroutines.version>1.4.0</kotest-assertions-arrow-fx-coroutines.version>
-        <testcontainers.version>1.19.0</testcontainers.version>
+        <testcontainers.version>1.19.1</testcontainers.version>
         <jupiter.version>5.10.0</jupiter.version>
         <hoplite.version>2.7.5</hoplite.version>
-        <arrow.version>1.2.0</arrow.version>
+        <arrow.version>1.2.1</arrow.version>
     </properties>
     <repositories>
         <repository>
