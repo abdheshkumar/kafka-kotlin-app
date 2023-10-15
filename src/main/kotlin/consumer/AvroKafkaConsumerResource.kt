@@ -20,16 +20,16 @@ class AvroKafkaConsumerResource(private val cache: InMemoryCache) {
     private val log: Logger = LoggerFactory.getLogger(AvroKafkaConsumerResource::class.java)
 
     fun kafkaProperties(config: Config): Properties {
-        val props = Properties()
-        props[ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG] = config.bootstrapServers
-        props[ConsumerConfig.GROUP_ID_CONFIG] = "test"
-        props[ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG] = "true"
-        props[ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG] = "1000"
-        props[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java
-        props[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] =
-            io.confluent.kafka.serializers.KafkaAvroDeserializer::class.java
-        props[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = config.schemaRegistryUrl
-        return props
+        return Properties().apply {
+            this[ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG] = config.bootstrapServers
+            this[ConsumerConfig.GROUP_ID_CONFIG] = "test"
+            this[ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG] = "true"
+            this[ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG] = "1000"
+            this[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java
+            this[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] =
+                io.confluent.kafka.serializers.KafkaAvroDeserializer::class.java
+            this[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = config.schemaRegistryUrl
+        }
     }
 
     fun createConsumer(props: Properties): Resource<KafkaConsumer<String, User>> =

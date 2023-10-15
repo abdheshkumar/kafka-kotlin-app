@@ -6,6 +6,7 @@ import arrow.fx.coroutines.Resource
 import arrow.fx.coroutines.resource
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
+import io.confluent.kafka.serializers.KafkaAvroSerializer
 import loadApplicationConfig
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerConfig
@@ -22,10 +23,7 @@ class AvroKafkaProducerResource {
     fun kafkaProperties(config: Config): Properties = Properties().apply {
         put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, config.bootstrapServers)
         put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer::class.java)
-        put(
-            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-            io.confluent.kafka.serializers.KafkaAvroSerializer::class.java,
-        )
+        put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
         put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, config.schemaRegistryUrl)
     }
 

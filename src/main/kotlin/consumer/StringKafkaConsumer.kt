@@ -7,15 +7,13 @@ import java.util.*
 
 object StringKafkaConsumer {
 
-    private fun kafkaProperties(): Properties {
-        val props = Properties()
-        props.setProperty("bootstrap.servers", "localhost:29092")
-        props.setProperty("group.id", "test")
-        props.setProperty("enable.auto.commit", "true")
-        props.setProperty("auto.commit.interval.ms", "1000")
-        props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
-        props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
-        return props
+    private fun kafkaProperties(): Properties = Properties().apply {
+        put("bootstrap.servers", "localhost:29092")
+        put("group.id", "test")
+        put("enable.auto.commit", "true")
+        put("auto.commit.interval.ms", "1000")
+        put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
+        put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
     }
 
     private fun createConsumer(props: Properties): KafkaConsumer<String, String> = KafkaConsumer(props)
