@@ -8,8 +8,8 @@ import org.testcontainers.containers.wait.strategy.HostPortWaitStrategy
 import org.testcontainers.utility.DockerImageName
 
 abstract class BaseITSetup : StringSpec() {
-    private val confluentPlatformSchemaRegistryImage = "confluentinc/cp-schema-registry:7.2.2"
-    private val confluentPlatformKafkaImage = "confluentinc/cp-kafka:7.2.2"
+    private val confluentPlatformSchemaRegistryImage = "confluentinc/cp-schema-registry:7.5.1"
+    private val confluentPlatformKafkaImage = "confluentinc/cp-kafka:7.5.1"
     private val schemaRegistryPort = 8085
 
     private val kafkaContainerResource: Resource<KafkaContainer> =

@@ -1,29 +1,20 @@
-
-import io.kotest.extensions.testcontainers.kafka.createStringStringConsumer
-import io.kotest.extensions.testcontainers.kafka.createStringStringProducer
-import io.kotest.matchers.collections.shouldHaveSize
-import org.apache.kafka.clients.consumer.ConsumerConfig
-import org.apache.kafka.clients.producer.ProducerRecord
+import io.kotest.assertions.arrow.fx.coroutines.ResourceExtension
+import io.kotest.assertions.nondeterministic.eventually
+import io.kotest.core.extensions.install
+import io.kotest.matchers.shouldBe
+import producer.startApp
 import java.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 class KafkaTestContainerExtensionTest : BaseIT() {
     init {
+        val app = install(ResourceExtension(startApp("dev")))
         "should setup kafka" {
-            println(schemaUrl())
-            val producer = kafkaContainer.createStringStringProducer()
-            producer.send(ProducerRecord("foo", "key", "bubble bobble"))
-            producer.flush()
-            producer.close()
-
-            val consumer = kafkaContainer.createStringStringConsumer {
-                this[ConsumerConfig.MAX_POLL_RECORDS_CONFIG] = 1
-                this[ConsumerConfig.AUTO_OFFSET_RESET_CONFIG] = "earliest"
+            val consumer = kafkaConsumer()
+            eventually(10.seconds) {
+                val records = consumer.poll(Duration.ofMillis(1000))
+                records.count() shouldBe 100
             }
-
-            consumer.subscribe(listOf("foo"))
-            val records = consumer.poll(Duration.ofSeconds(15))
-            records.shouldHaveSize(1)
-            consumer.close()
         }
     }
 }
