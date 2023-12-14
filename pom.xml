@@ -23,7 +23,7 @@
         <kotest-extensions-testcontainers.version>2.0.2</kotest-extensions-testcontainers.version>
         <kotest-assertions-arrow-fx-coroutines.version>1.4.0</kotest-assertions-arrow-fx-coroutines.version>
         <testcontainers.version>1.19.1</testcontainers.version>
-        <jupiter.version>5.10.0</jupiter.version>
+        <jupiter.version>5.10.1</jupiter.version>
         <hoplite.version>2.7.5</hoplite.version>
         <arrow.version>1.2.1</arrow.version>
     </properties>
