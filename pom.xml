@@ -19,7 +19,7 @@
         <confluent.version>7.7.0</confluent.version>
         <log4j-slf4j2-impl.version>2.23.1</log4j-slf4j2-impl.version>
         <slf4j-api.version>2.0.14</slf4j-api.version>
-        <kotest.version>5.8.0</kotest.version>
+        <kotest.version>5.9.1</kotest.version>
         <kotest-extensions-testcontainers.version>2.0.2</kotest-extensions-testcontainers.version>
         <kotest-assertions-arrow-fx-coroutines.version>1.4.0</kotest-assertions-arrow-fx-coroutines.version>
         <testcontainers.version>1.19.3</testcontainers.version>
