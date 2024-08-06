@@ -24,7 +24,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   kafka-schema-registry:
-    image: confluentinc/cp-schema-registry:7.5.2
+    image: confluentinc/cp-schema-registry:7.7.0
     hostname: kafka-schema-registry
     container_name: kafka-schema-registry
     depends_on:
