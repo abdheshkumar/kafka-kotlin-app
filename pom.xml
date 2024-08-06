@@ -12,7 +12,7 @@
         <java.version>19</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <kotlin.version>1.9.21</kotlin.version>
+        <kotlin.version>1.9.25</kotlin.version>
         <kotlinx.version>1.7.3</kotlinx.version>
         <kafka.version>7.7.0-ce</kafka.version>
         <avro.version>1.11.3</avro.version>
