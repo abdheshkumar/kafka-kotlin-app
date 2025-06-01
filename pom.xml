@@ -25,7 +25,7 @@
         <testcontainers.version>1.19.3</testcontainers.version>
         <jupiter.version>5.13.0</jupiter.version>
         <hoplite.version>2.7.5</hoplite.version>
-        <arrow.version>1.2.4</arrow.version>
+        <arrow.version>2.1.2</arrow.version>
         <reactor-kafka.version>1.3.22</reactor-kafka.version>
     </properties>
     <repositories>
