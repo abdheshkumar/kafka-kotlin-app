@@ -1,11 +1,11 @@
-package producer
+package com.abtech.producer
 
-import Config
+import com.abtech.Config
 import arrow.core.Either
+import com.abtech.loadApplicationConfig
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
 import io.confluent.kafka.serializers.KafkaAvroSerializer
-import loadApplicationConfig
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.serialization.StringSerializer

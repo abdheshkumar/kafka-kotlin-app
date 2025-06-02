@@ -1,3 +1,5 @@
+package com.abtech
+
 import arrow.fx.coroutines.Resource
 import arrow.fx.coroutines.resource
 import com.user.User
@@ -10,7 +12,9 @@ import io.kotest.matchers.shouldBe
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.common.serialization.StringDeserializer
-import producer.startApp
+import com.abtech.producer.startApp
+import com.abtech.support.BaseITSetup
+import com.abtech.support.TestApp
 import java.time.Duration
 import java.util.*
 import kotlin.time.Duration.Companion.seconds

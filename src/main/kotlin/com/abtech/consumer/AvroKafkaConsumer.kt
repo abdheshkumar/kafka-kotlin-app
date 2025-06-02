@@ -1,4 +1,4 @@
-package consumer
+package com.abtech.consumer
 
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig

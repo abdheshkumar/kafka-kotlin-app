@@ -1,4 +1,4 @@
-package producer
+package com.abtech.producer
 
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig

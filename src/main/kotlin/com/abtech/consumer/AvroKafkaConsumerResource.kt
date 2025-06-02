@@ -1,13 +1,14 @@
-package consumer
+package com.abtech.consumer
 
-import Config
+import com.abtech.Config
 import arrow.core.Either
 import arrow.fx.coroutines.Resource
 import arrow.fx.coroutines.resource
 import arrow.fx.coroutines.use
+import com.abtech.loadApplicationConfig
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
-import loadApplicationConfig
+import io.confluent.kafka.serializers.KafkaAvroDeserializer
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerRecords
 import org.apache.kafka.clients.consumer.KafkaConsumer
@@ -28,7 +29,7 @@ class AvroKafkaConsumerResource(private val cache: InMemoryCache) {
             this[ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG] = "1000"
             this[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java
             this[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] =
-                io.confluent.kafka.serializers.KafkaAvroDeserializer::class.java
+                KafkaAvroDeserializer::class.java
             this[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = config.schemaRegistryUrl
         }
     }
@@ -61,4 +62,4 @@ suspend fun startApp(env: String): Resource<Unit> = resource {
     }
 }
 
-suspend fun main(): kotlin.Unit = startApp("dev").use { }
+suspend fun main(): Unit = startApp("dev").use { }

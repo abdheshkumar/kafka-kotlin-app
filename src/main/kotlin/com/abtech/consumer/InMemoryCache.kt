@@ -1,4 +1,4 @@
-package consumer
+package com.abtech.consumer
 
 import arrow.atomic.update
 import java.util.concurrent.atomic.AtomicReference

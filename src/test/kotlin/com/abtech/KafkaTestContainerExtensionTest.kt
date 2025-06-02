@@ -1,8 +1,11 @@
+package com.abtech
+
 import io.kotest.assertions.arrow.fx.coroutines.ResourceExtension
 import io.kotest.assertions.nondeterministic.eventually
 import io.kotest.core.extensions.install
 import io.kotest.matchers.shouldBe
-import producer.startApp
+import com.abtech.producer.startApp
+import com.abtech.support.BaseIT
 import java.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
