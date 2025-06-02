@@ -2,9 +2,9 @@ import arrow.fx.coroutines.Resource
 import arrow.fx.coroutines.resource
 import io.kotest.core.spec.style.StringSpec
 import org.testcontainers.containers.GenericContainer
-import org.testcontainers.containers.KafkaContainer
 import org.testcontainers.containers.Network
 import org.testcontainers.containers.wait.strategy.HostPortWaitStrategy
+import org.testcontainers.kafka.ConfluentKafkaContainer
 import org.testcontainers.utility.DockerImageName
 
 abstract class BaseITSetup : StringSpec() {
@@ -12,9 +12,9 @@ abstract class BaseITSetup : StringSpec() {
     private val confluentPlatformKafkaImage = "confluentinc/cp-kafka:7.5.1"
     private val schemaRegistryPort = 8085
 
-    private val kafkaContainerResource: Resource<KafkaContainer> =
+    private val kafkaContainerResource: Resource<ConfluentKafkaContainer> =
         resource({
-            val container = KafkaContainer(DockerImageName.parse(confluentPlatformKafkaImage))
+            val container = ConfluentKafkaContainer(DockerImageName.parse(confluentPlatformKafkaImage))
                 .withNetwork(Network.SHARED)
                 .waitingFor(HostPortWaitStrategy())
             container.start()
@@ -23,14 +23,14 @@ abstract class BaseITSetup : StringSpec() {
             container.close()
         }
 
-    private fun schemaRegistryContainerResource(kafkaContainer: KafkaContainer) = resource({
+    private fun schemaRegistryContainerResource(kafkaContainer: ConfluentKafkaContainer) = resource({
         val container = createSchemaRegistryContainer(kafkaContainer)
         container.start()
         container
     }) { container, _ -> container.close() }
 
     private fun createSchemaRegistryContainer(
-        kafkaContainer: KafkaContainer,
+        kafkaContainer: ConfluentKafkaContainer,
     ): GenericContainer<*> {
         return GenericContainer(DockerImageName.parse(confluentPlatformSchemaRegistryImage))
             .withNetwork(kafkaContainer.network)

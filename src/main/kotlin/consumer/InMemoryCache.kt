@@ -1,6 +1,6 @@
 package consumer
 
-import arrow.core.continuations.update
+import arrow.atomic.update
 import java.util.concurrent.atomic.AtomicReference
 
 class InMemoryCache {

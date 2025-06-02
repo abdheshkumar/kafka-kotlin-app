@@ -8,9 +8,9 @@ import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.testcontainers.containers.GenericContainer
-import org.testcontainers.containers.KafkaContainer
 import org.testcontainers.containers.Network
 import org.testcontainers.containers.wait.strategy.HostPortWaitStrategy
+import org.testcontainers.kafka.KafkaContainer
 import org.testcontainers.utility.DockerImageName
 import java.util.*
 

@@ -4,6 +4,7 @@ import Config
 import arrow.core.Either
 import arrow.fx.coroutines.Resource
 import arrow.fx.coroutines.resource
+import arrow.fx.coroutines.use
 import com.user.User
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
 import loadApplicationConfig
@@ -60,4 +61,4 @@ suspend fun startApp(env: String): Resource<Unit> = resource {
     }
 }
 
-suspend fun main() = startApp("dev").use { }
+suspend fun main(): kotlin.Unit = startApp("dev").use { }
