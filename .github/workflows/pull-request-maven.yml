@@ -2,9 +2,8 @@ name: Java CI with Gradle and Maven
 
 on:
   pull_request:
-    branches: [ "main"
-
-      jobs:
+    branches: [ "main" ]
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
