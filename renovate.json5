@@ -1,19 +1,18 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "description": "Automatically merge minor and patch-level updates",
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest"
+      description: 'Automatically merge minor and patch-level updates',
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+        'digest',
       ],
-      "automerge": true,
-      // Force Renovate to not create a PR (but merge its branches directly), to avoid PR-related email spam
-      "automergeType": "branch"
-    }
-  ]
+      automerge: true,
+      automergeType: 'branch',
+    },
+  ],
 }
