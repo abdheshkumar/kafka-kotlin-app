@@ -19,7 +19,7 @@
         <confluent.version>8.2.1</confluent.version>
         <log4j-slf4j2-impl.version>2.26.0</log4j-slf4j2-impl.version>
         <slf4j-api.version>2.0.18</slf4j-api.version>
-        <kotest.version>6.1.11</kotest.version>
+        <kotest.version>6.2.0</kotest.version>
         <testcontainers.version>1.21.4</testcontainers.version>
         <hoplite.version>2.9.0</hoplite.version>
         <arrow.version>2.2.3</arrow.version>
