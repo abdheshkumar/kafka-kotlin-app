@@ -21,7 +21,7 @@
         <slf4j-api.version>2.0.20</slf4j-api.version>
         <kotest.version>6.2.5</kotest.version>
         <testcontainers.version>1.21.4</testcontainers.version>
-        <hoplite.version>2.9.0</hoplite.version>
+        <hoplite.version>3.0.3</hoplite.version>
         <arrow.version>2.2.3</arrow.version>
         <reactor-kafka.version>1.3.25</reactor-kafka.version>
     </properties>
